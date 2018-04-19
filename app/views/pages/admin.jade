@@ -1,0 +1,76 @@
+extends ../layout
+
+block content
+    .container
+        .row
+          form.from-horizontal(method="post",action="/admin/movie/new",enctype="multipart/form-data")
+                .form-group
+                  label.col-sm-2.control-label(for="inputTitle") 电影名字
+                  .col-sm-10
+                    - var movie = [{'title': 'foo'},{}]
+                    - var movie = [{'catetory': 'foo'}]
+                    - var movie = [{'country': 'foo'}]
+                    - var movie = [{'language': 'foo'}]
+                    - var movie = [{'poster': 'foo'}]
+                    - var movie = [{'flash': 'foo'}]
+                    - var movie = [{'year': 'foo'}]
+                    - var movie = [{'summary': 'foo'}]
+                    - var catetory = []
+                    input#inputTitle.form-control(type="text", name="title", value="#{movie.title}")
+
+                .form-group
+                  label.col-sm-2.control-label(for="inputDoctor") 电影导演
+                  .col-sm-10
+                    input#inputDoctor.form-control(type="text", name="doctor", value="#{movie.doctor}") 
+
+                 .form-group
+                  label.col-sm-2.control-label(for="inputDoctor") 分类
+                  .col-sm-10
+                    select.form-control( name="catetory", value="#{movie.catetory}")  
+                     each item in catetory
+                       option(value=item._id)= item.name
+                   
+                
+                .form-group
+                  label.col-sm-2.control-label(for="inputCountry") 国家
+                  .col-sm-10
+                    input#inputDoctor.form-control(type="text", name="country", value="#{movie.country}")  
+
+
+                .form-group
+                  label.col-sm-2.control-label(for="inputLanguage") 语种
+                  .col-sm-10
+                    input#inputDoctor.form-control(type="text", name="language", value="#{movie.language}")
+
+                .form-group
+                  label.col-sm-2.control-label(for="inputPoster") 海报地址
+                  .col-sm-10
+                    input#inputDoctor.form-control(type="text", name="poster", value="#{movie.poster}")
+
+                .form-group
+                  label.col-sm-2.control-label(for="inputPoster") 海报上传
+                  .col-sm-10
+                    input#inputDoctor.form-control(type="file", value="选择文件")
+
+                .form-group
+                  label.col-sm-2.control-label(for="inputFlash") 片源地址
+                  .col-sm-10
+                    input#inputDoctor.form-control(type="text", name="flash", value="#{movie.flash}") 
+
+                .form-group
+                  label.col-sm-2.control-label(for="inputyear") 上映年代
+                  .col-sm-10
+                  
+                    input#inputDoctor.form-control(type="text", name="year", value="#{movie.year}")
+
+                .form-group
+                  label.col-sm-2.control-label(for="inputSummary") 电影简介
+                  .col-sm-10
+                    input#inputDoctor.form-control(type="text", name="summary", value="#{movie.summary}")  
+                .form-group
+                  .col-sm-offset-2.col-sm-10
+                  button.btn.btn-default(type="submit") 录入
+
+
+        
+
