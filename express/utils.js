@@ -1,6 +1,8 @@
 /************ Utils 工具 **************************/
 var http = require('http');
 var fs = require('fs');
+var url = require('url');
+var util = require('util');
 /**
  * Logs a Message
  * @param {String} msg
@@ -50,5 +52,11 @@ var _isObject = function(value) {
 
 }
 
+var defineProperty = function(obj, em) {
+    let keys = Object.keys(obj);
+    keys.forEach(name => {
+        em[name] = obj[name]
+    });
+}
 
 

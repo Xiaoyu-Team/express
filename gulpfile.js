@@ -42,12 +42,12 @@ var onError = function(error) {
 // js
 gulp.task('script', function() {
 
-    return gulp.src(['./express/utils.js','./express/main.js', './express/application.js', './express/index.js'])
+    return gulp.src(['./express/utils.js','./express/main.js', './express/request.js','./express/application.js', './express/express.js'])
         .pipe(plumber(onError))
         .pipe(babel({
             presets: ['es2015']
         }))
-        .pipe(concat('main.js'))
+        .pipe(concat('express.js'))
         .pipe(removeUseStrict())
         .pipe(gulp.dest('./build'))
         .pipe(browserSync.reload({

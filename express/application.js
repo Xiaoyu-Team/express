@@ -1,52 +1,35 @@
 /************* application(http server) **********/
+var http = require('http');
 
+var app = exports = module.exports = {};
+app.init = function init() {
+    this.cache = {};// 缓存
+    this.engines = {};// 
+    this.settings = {};// 基本设置
+  
+    //this.defaultConfiguration();// 配置文件初始化
+  };
 /**
- * app.listen(port, [hostname], [backlog], [callback])
  * 创建本地服务器
- * @param {*} port    端口 
- * @param {*} hostname  
- * @param {*} backlog 
- * @param {*} callback 
+ * listener 80
  */
-Express.prototype.listen = function(port, hostname, backlog, callback) {
-    if (port === void(0)) {
-        return 0;
-    }
-    http.createServer(function (request, response) {
-        var body = 'Thanks for calling';
-        var content_length = body.lenggth;
-        response.writeHead(200, {
-            'Content-Type': 'text/plain',
-        });
-        response.end('Hello World\n');
-   
-    }).listen(port);
+app.listen = function() {
+    console.log(123);
+    var server = http.createServer(this);
+    return server.listen.apply(server, arguments);
 }
 /**
- * 设置一些常量
- * @param {*} name 
- * @param {*} value 
+ * 做一些基本设置
+ *  
+ * setting 属性名字
+ * val 
  */
-Express.prototype.set = function(name, value) {
-    if(name ===  '' || _isUndefined(name)) {
-        error('name 错误');
-    }
-    self.options[name] = name;// 初始化选项
-}
 
-/**
- * 获取特定常量
- * @param {*} name 
- */
-Express.prototype.set = function(name) {
-    if(name ===  '' || _isUndefined(name)) {
-        error('name 错误');
-    }
-    if(!self.options[name] === void(0)) {
-        return  self.options[name]
-    } else {
-        error('没有value')
-    }
+app.set = function set (setting, val) {
+   if(arguments.length  === 1) {
+        return  this.setting[setting];
+   }
+   this.setting[setting] = val;
 }
 
 
